@@ -32,6 +32,12 @@ $( document ).ready(function() {
 
 });
 
+$('#time-control input').on('input', function (event) {
+
+$('#time-control .current-time').text( currentTime );
+  player.skipTo(event.target.value);
+   });
+
 
 setInterval( () => {
   const currentTime = player.getTime();
