@@ -33,16 +33,16 @@ $( document ).ready(function() {
 });
 
 $('#time-control input').on('input', function (event) {
-
-$('#time-control .current-time').text( currentTime );
-  player.skipTo(event.target.value);
-   });
+    player.skipTo(event.target.value);
+});
 
 
 setInterval( () => {
   const currentTime = player.getTime();
   const duration = player.getDuration();
   const percent = (currentTime / duration) * 100;
+  $('#time-control .current-time').text( currentTime );
+  $('#time-control .current-time').text(  );
   $('#time-control input').val(percent);
 }, 1000);
 
