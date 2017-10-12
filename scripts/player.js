@@ -9,7 +9,7 @@ class Player {
   prettyTime (timeInSeconds) {
 
    const totalTime = (timeInSeconds / 60);
-   return;
+   return totalTime;
 
   }
 
