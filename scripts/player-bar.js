@@ -41,12 +41,17 @@ $('#volume-control input').on('input', function (event) {
 });
 
 setInterval( () => {
+
   const currentTime = player.getTime();
   const duration = player.getDuration();
   const percent = (currentTime / duration) * 100;
-  $('#time-control .current-time').text( currentTime );
-  $('#time-control .current-time').text(  );
+  const realTime = player.prettyTime(currentTime);
+  const fullTime = player.prettyTime(duration);
+  $('#time-control .current-time').text( realTime );
+  $('#time-control .total-time').text ( fullTime );
   $('#time-control input').val(percent);
+
 }, 1000);
+
 
 });

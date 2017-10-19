@@ -4,12 +4,26 @@ class Player {
     this.playState = 'stopped';
     this.volume = 80;
     this.soundObject = new buzz.sound(this.currentlyPlaying.soundFileUrl);
+
   }
 
-  prettyTime (timeInSeconds) {
+  prettyTime(timeInSeconds) {
 
-    const totalTime = (timeInSeconds / 60);
-    return totalTime;
+      //use parseFloat method to get the seconds in numberpa
+     timeInSeconds = parseFloat(timeInSeconds);
+
+
+     //store variable for whole seconds and whole minutes using math.floor to round down
+     var minutes = Math.floor(timeInSeconds/60);
+     var seconds = Math.floor(timeInSeconds%60);
+
+     //return the time in X:XX format
+     if (seconds < 10){
+      return (minutes + ":0" + seconds);
+    }
+     else{
+     return (minutes + ":" + seconds);
+   }
 }
   getDuration() {
     return this.soundObject.getDuration();
